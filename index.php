@@ -1,3 +1,11 @@
+<?php
+include('./crud/connexion.php');
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
