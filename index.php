@@ -1,5 +1,60 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <title>Contactify</title>
+</head>
+<body>
+  
+
+<form action="./add.php" method="POST">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="name">First name</label>
+      <input type="text" class="form-control" id="name" placeholder="First name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="prenom">Last name</label>
+      <input type="text" class="form-control" id="prenom" placeholder="Last name" >
+    </div>
+    
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="photo">photo</label>
+      <input type="file" class="form-control" id="photo" placeholder="entre ur URL here" >
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="nemuro">nemuro</label>
+      <input type="number" class="form-control" id="nemuro" placeholder="le numero de telefo" >
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="email">email</label>
+      <input type="text" class="form-control" id="email" placeholder="ur email" >
+    </div>
+    
+  </div>
+ 
+  <button class="btn btn-primary" type="submit">Submit </button>
+</form>
+
+
+</body>
+</html>
+
 <?php
 include('./connexion.php');
+
 
 $sql = " SELECT * FROM Contacts";
 if ($result = mysqli_query($conn, $sql)) {
@@ -66,19 +121,3 @@ if ($result = mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
