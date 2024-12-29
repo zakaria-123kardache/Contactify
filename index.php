@@ -59,6 +59,7 @@
 include('./connexion.php');
 
 
+
 $sql = " SELECT * FROM Contacts";
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
@@ -98,9 +99,21 @@ if ($result = mysqli_query($conn, $sql)) {
         echo "<td class=\"text-end\">";
         echo "<a class=\"btn d-inline-flex btn-sm btn-warning mx-1 \">" . "<span>" . "View" . "</span>" . "</a>";
         echo "<a class=\"btn d-inline-flex btn-sm btn-primary mx-1\">";
+        
+        echo "<form action=\"./edit.php\" method=\"POST\" style=\"display:inline;\">";
+        echo "<input type=\"hidden\" name=\"id\" value=\"" . $row['id'] . "\" class=\"pe-2 \">";
+        echo "<button type=\"submit\" style=\"background:none; border:none;\">";
+        echo "<i class=\"bi bi-pencil\"></i><span>Edit</span>";
+        echo "</button>";
+        echo "</form>";
+        
+        echo "<a class=\"btn d-inline-flex btn-sm btn-primary mx-1\">";
 
-        echo "<span class=\" pe-2\">" . "<i class=\"bi bi-pencil\">" . "</i>" . "</span>" . "<span>" . "Edit" . "</span>" . "</a>";
-        echo "<button type=\"button\" onclick=\"showSweetAlert()\" class=\"btn btn-sm btn-square btn-neutral text-danger-hover\">" . "<i class=\"bi bi-trash\">" . "</i>" . " </button>";
+        echo "<form action=\"./delet.php\" method=\"POST\" style=\"display:inline;\">";
+        echo "<input type=\"hidden\" name=\"id\" value=\"" . $row['id'] . "\">";
+        echo "<button type=\"submit\" class=\"btn btn-sm  text-danger \">" . "<i class=\"bi bi-trash\"></i>" . "</button>";
+        echo "</form>";
+        
         echo "</td>";
         echo "</tr>";
     }
