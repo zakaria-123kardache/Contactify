@@ -14,34 +14,37 @@
 <body>
   
 
+
 <form action="./add.php" method="POST">
   <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="name">First name</label>
-      <input type="text" class="form-control" id="name" placeholder="First name">
+
+  <div class="col-md-6 mb-3">
+      <label for="photo">photo</label>
+      <input type="file" class="form-control" id="photo" name="photo" placeholder="entre ur URL here" >
     </div>
     <div class="col-md-4 mb-3">
-      <label for="prenom">Last name</label>
-      <input type="text" class="form-control" id="prenom" placeholder="Last name" >
+      <label for="nom">First name</label>
+      <input type="text" class="form-control" id="nom" name="nom" placeholder="First name">
     </div>
+   
     
   </div>
 
   <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="photo">photo</label>
-      <input type="file" class="form-control" id="photo" placeholder="entre ur URL here" >
-    </div>
-
-    <div class="col-md-3 mb-3">
-      <label for="nemuro">nemuro</label>
-      <input type="number" class="form-control" id="nemuro" placeholder="le numero de telefo" >
+  <div class="col-md-4 mb-3">
+      <label for="prenom">Last name</label>
+      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Last name" >
     </div>
 
     <div class="col-md-3 mb-3">
       <label for="email">email</label>
-      <input type="text" class="form-control" id="email" placeholder="ur email" >
+      <input type="text" class="form-control" id="email" name="email" placeholder="ur email" >
     </div>
+    <div class="col-md-3 mb-3">
+      <label for="nemuro">nemuro</label>
+      <input type="number" class="form-control" id="nemuro" name="numero" placeholder="le numero de telefo" >
+    </div>
+
     
   </div>
  
