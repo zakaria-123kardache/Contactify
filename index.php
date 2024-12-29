@@ -100,7 +100,12 @@ if ($result = mysqli_query($conn, $sql)) {
         echo "<a class=\"btn d-inline-flex btn-sm btn-primary mx-1\">";
 
         echo "<span class=\" pe-2\">" . "<i class=\"bi bi-pencil\">" . "</i>" . "</span>" . "<span>" . "Edit" . "</span>" . "</a>";
-        echo "<button type=\"button\" onclick=\"showSweetAlert()\" class=\"btn btn-sm btn-square btn-neutral text-danger-hover\">" . "<i class=\"bi bi-trash\">" . "</i>" . " </button>";
+
+        echo "<form action=\"./delet.php\" method=\"POST\" style=\"display:inline;\">";
+        echo "<input type=\"hidden\" name=\"id\" value=\"" . $row['id'] . "\">";
+        echo "<button type=\"submit\" class=\"btn btn-sm btn-square btn-neutral text-danger-hover\">" . "<i class=\"bi bi-trash\"></i>" . "</button>";
+        echo "</form>";
+        
         echo "</td>";
         echo "</tr>";
     }
