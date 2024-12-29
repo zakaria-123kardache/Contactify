@@ -1,11 +1,12 @@
 <?php
-include('./crud/connexion.php');
+include('./connexion.php');
 
 $sql = " SELECT * FROM Contacts";
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
+
       echo "<main class=\"py-6 bg-surface-secondary\"> ";
-      echo "<div class=\"container-fluid\"> ";
+      echo "<div class=\"container-fluid\">";
       echo "<div class=\"card shadow border-0 mb-7\">";
       echo "<div class=\"card-header\">";
       echo "<h5 class=\"mb-0\">Applications</h5>";
@@ -28,7 +29,7 @@ if ($result = mysqli_query($conn, $sql)) {
         echo " <tr>";
         echo " <td>" . $row['id'] . "</td>";
         echo "<td>" . "<img src =\"" . $row['photo'] . "\" class=\"avatar avatar-sm rounded-circle me-2\">" . "</td>";
-        echo "  <td class=\"text-heading font-semibold\">"  . $row['name'] . "</td>";
+        echo "  <td class=\"text-heading font-semibold\">"  . $row['nom'] . "</td>";
 
         echo "<td>" . " <span class=\"badge badge-lg badge-dot\">" . $row['prenom'] . "</span>" . "</td>";
 
@@ -65,3 +66,19 @@ if ($result = mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
