@@ -36,3 +36,6 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
 
 // Close statement
 mysqli_stmt_close($stmt);
+
+
+?>

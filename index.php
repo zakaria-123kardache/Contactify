@@ -59,6 +59,7 @@
 include('./connexion.php');
 
 
+
 $sql = " SELECT * FROM Contacts";
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
@@ -99,7 +100,9 @@ if ($result = mysqli_query($conn, $sql)) {
         echo "<a class=\"btn d-inline-flex btn-sm btn-warning mx-1 \">" . "<span>" . "View" . "</span>" . "</a>";
         echo "<a class=\"btn d-inline-flex btn-sm btn-primary mx-1\">";
 
-        echo "<span class=\" pe-2\">" . "<i class=\"bi bi-pencil\">" . "</i>" . "</span>" . "<span>" . "Edit" . "</span>" . "</a>";
+        echo "<form action=\"./edit.php\" method=\"POST\" style=\"display:inline;\">";
+        echo "<span type=\"hidden\" name=\"id\" class=\" pe-2\">" . $row['id']  . "<i class=\"bi bi-pencil\">" . "</i>" . "</span>" . "<span>" . "Edit" . "</span>" . "</a>";
+        echo "</form>";
 
         echo "<form action=\"./delet.php\" method=\"POST\" style=\"display:inline;\">";
         echo "<input type=\"hidden\" name=\"id\" value=\"" . $row['id'] . "\">";
