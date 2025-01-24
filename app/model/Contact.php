@@ -10,7 +10,6 @@ class Contact {
     private string $email ; 
     private string $numero ; 
     
-
     public function __construct()
     {
         

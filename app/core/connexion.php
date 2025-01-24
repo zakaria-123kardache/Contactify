@@ -28,6 +28,7 @@ class Connexion {
                     self::$username,
                     self::$password
                 );
+
                 self::$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 die("connexion failed" . $e->getMessage());
@@ -48,6 +49,7 @@ class Connexion {
     public function getConnexion ()
     {
         return  self::$connexion; 
+       
     }
 
 }

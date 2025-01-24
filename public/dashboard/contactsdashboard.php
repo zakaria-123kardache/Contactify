@@ -7,8 +7,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 
 
-
-
 ?>
 
 
@@ -290,7 +288,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 
 
-    data-bs-toggle="modal" data-bs-target="#loginModal"
 
 
     <!-- start Modal creat -->
@@ -298,52 +295,45 @@ require_once __DIR__ . '/../../vendor/autoload.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Creat New User</h5>
+                <h5 class="modal-title" id="loginModalLabel">Creat New Contact</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+
+                <form method="POST" action="./contactsdashboard.php">
                     <div class="mb-3">
                         <label for="firstname" class="form-label">Firstname</label>
-                        <input type="text" class="form-control" id="firstname" >
+                        <input type="text" class="form-control" name="firstname" id="firstname" >
                     </div>
 
                     <div class="mb-3">
                         <label for="lastname" class="form-label">Lastname</label>
-                        <input type="lastname" class="form-control" id="lastname" >
+                        <input type="lastname" class="form-control" name="lastname" id="lastname" >
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" name="email" id="email" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" >
+                        <label for="nemuro" class="form-label">Nemuro</label>
+                        <input type="text" class="form-control" name="nemuro" id="nemuro" >
                     </div>
 
                     <div class="mb-3">
                         <label>Photo</label>
-                        <input type="file" id="CRedit-photo" class="form-control">
+                        <input type="file" id="CRedit-photo" name="photo" class="form-control">
                       </div>
 
 
-                    <div class="mb-3">
-                       
-                        <select class="form-select" aria-label="GFG Select"> 
-                          <option>Role</option> 
-                          <option value="GFG1">Admin</option> 
-                          <option value="GFG2"selected>Etudiant</option> 
-                          <option value="GFG3">Ensignant</option>
-                      </select>
-
-                      </div>
+                   
 
 
 
                     <button type="submit" class="btn btn-primary">submit</button>
                 </form>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -360,52 +350,40 @@ require_once __DIR__ . '/../../vendor/autoload.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Edit User</h5>
+                <h5 class="modal-title" id="loginModalLabel">Edit Contact</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+
+            <form method="POST" action="./contactsdashboard.php">
                     <div class="mb-3">
                         <label for="firstname" class="form-label">Firstname</label>
-                        <input type="text" class="form-control" id="firstname" >
+                        <input type="text" class="form-control" name="firstname" id="firstname" >
                     </div>
 
                     <div class="mb-3">
                         <label for="lastname" class="form-label">Lastname</label>
-                        <input type="lastname" class="form-control" id="lastname" >
+                        <input type="lastname" class="form-control" name="lastname" id="lastname" >
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" name="email" id="email" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" >
+                        <label for="nemuro" class="form-label">Nemuro</label>
+                        <input type="text" class="form-control" name="nemuro" id="nemuro" >
                     </div>
 
                     <div class="mb-3">
                         <label>Photo</label>
-                        <input type="file" id="CRedit-photo" class="form-control">
+                        <input type="file" id="CRedit-photo" name="photo" class="form-control">
                       </div>
-
-
-                    <div class="mb-3">
-                       
-                        <select class="form-select" aria-label="GFG Select"> 
-                          <option>Role</option> 
-                          <option value="GFG1">Admin</option> 
-                          <option value="GFG2"selected>Etudiant</option> 
-                          <option value="GFG3">Ensignant</option>
-                      </select>
-
-                      </div>
-
-
 
                     <button type="submit" class="btn btn-primary">submit</button>
                 </form>
+               
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
