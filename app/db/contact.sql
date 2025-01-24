@@ -4,8 +4,8 @@ USE Contactify ;
 CREATE TABLE Contacts(
     id INT PRIMARY KEY AUTO_INCREMENT ,
     photo VARCHAR (250), 
-    nom VARCHAR (5O), 
-    prenom VARCHAR (5O), 
+    lastname VARCHAR (5O), 
+    firstname VARCHAR (5O), 
     email VARCHAR (5O), 
     numero  VARCHAR (5O) 
 );
