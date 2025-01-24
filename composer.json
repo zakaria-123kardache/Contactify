@@ -1,0 +1,14 @@
+{
+    "name": "youcode/contactify",
+    "autoload": {
+        "psr-4": {
+            "Youcode\\Contactify\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kardache Zakaria"
+        }
+    ],
+    "require": {}
+}

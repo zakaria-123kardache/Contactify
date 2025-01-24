@@ -1,5 +1,9 @@
 <?php
 
+namespace app;
+
+use PDO;
+use PDOException;
 
 class Connexion {
 
@@ -25,8 +29,8 @@ class Connexion {
                     self::$password
                 );
                 self::$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }catch{PDOException $e}{
-                die("connexion failed". $e->getMessage());
+            } catch (PDOException $e) {
+                die("connexion failed" . $e->getMessage());
             }
         }
     }
@@ -38,7 +42,7 @@ class Connexion {
             self::$counter ++ ; 
         }
 
-        return self ::$instance ; 
+        return self::$instance ; 
     } 
 
     public function getConnexion ()
