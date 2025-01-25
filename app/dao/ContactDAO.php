@@ -91,4 +91,18 @@ class ContactDAO
             return [];
         }
     }
+
+    public function countContacts(): int {
+        try {
+            $query = "SELECT COUNT(*) AS total FROM contacts";
+            $stmt = Connexion::getInstance()->getConnexion()->query($query);
+            
+            $result = $stmt->fetchObject();
+            
+            return (int)$result->total; 
+        } catch (PDOException $e) {
+            error_log("Count error: " . $e->getMessage());
+            return 0;
+        }
+    }
 }

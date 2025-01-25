@@ -17,6 +17,8 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
   $controller = new ContactController();
   $controller->deleteContact((int)$_POST['id']);
 }
+
+$totalContacts = $controller->getContactsCount();
 ?>
 
 
@@ -56,7 +58,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
         <!-- Brand -->
         <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
           <h3 class="text-success">
-            <img src="./img/youdemy-logo.png" width="40" /><span
+            <img src="https://play-lh.googleusercontent.com/5KOZ9NEzpt90U6PUn8kyV0wKjHHWlo2dblvwIX8Y9tC-SR9kDLrNE611BDJ3IxtyQqg=w240-h480-rw" width="40" /><span
               class="text-info">Contac</span>tify
           </h3>
         </a>
@@ -66,18 +68,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
         <div class="collapse navbar-collapse" id="sidebarCollapse">
           <!-- Navigation -->
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="./indexdashboard.php">
-                <i class="bi bi-house"></i> Dashboard
-              </a>
-            </li>
-
-
-
-
-
-
-
+          
             <li class="nav-item">
               <a
                 class="nav-link active text-warning"
@@ -153,15 +144,66 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
         </div>
       </header>
 
+      <section class="py-6 bg-surface-secondary">
+            <div class="container-fluid">
+
+                <!-- Card stats -->
+                <div class="row g-6 mb-6">
+
+                
+
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">All Contacts</span>
+                                        <span class="h3 font-bold mb-0"><?= $totalContacts ?></span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2 mb-0 text-sm">
+                                  
+                                    <span class="text-nowrap text-xs text-muted">Since last month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+
+                </div>
+
+
+         
+
+
+            </div>
+      </section>
+
+         <!-- Main -->
+       
+
       <!-- Main -->
       <section class="py-6 bg-surface-secondary">
         <div class="container-fluid">
+
+
+       
           <!-- Card stats -->
 
           <div class="card shadow border-0 mb-7">
             <div class="card-header">
               <h5 class="mb-0">Applications</h5>
+
             </div>
+            <!-- recherche -->
+           
+            <!-- recherche -->
             <div class="table-responsive">
               <table class="table table-hover table-nowrap">
                 <thead class="thead-light">
@@ -236,7 +278,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 
                         </a>
                       </td>
-                      
+
                     </tr>
                   <?php endforeach; ?>
 
@@ -299,7 +341,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 
             <div class="mb-3">
               <label>Photo</label>
-              <input type="file" id="CRedit-photo" name="photo" class="form-control">
+              <input type="text" id="CRedit-photo" name="photo_url" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -370,7 +412,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 
             <div class="mb-3">
               <label for="editphoto" class="form-label">Photo</label>
-              <input type="file" id="CRedit-photo" name="editphoto" class="form-control">
+              <input type="text" id="CRedit-photo" name="editphoto" class="form-control">
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary">save</button>

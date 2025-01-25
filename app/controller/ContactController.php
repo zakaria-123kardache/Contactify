@@ -94,4 +94,8 @@ class ContactController
     {
         return $this->contactdao->getAllContacts();
     }
+
+    public function getContactsCount(): int {
+        return $this->contactdao->countContacts();
+    }
 }
