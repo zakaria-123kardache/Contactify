@@ -19,6 +19,8 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 }
 
 $totalContacts = $controller->getContactsCount();
+
+
 ?>
 
 
@@ -290,7 +292,7 @@ $totalContacts = $controller->getContactsCount();
 
             <div class="card-footer border-0 py-5">
 
-              <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
+              <span class="text-muted text-sm">Showing 3 Contacts out of Limit results found</span>
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
@@ -341,7 +343,7 @@ $totalContacts = $controller->getContactsCount();
 
             <div class="mb-3">
               <label>Photo</label>
-              <input type="text" id="CRedit-photo" name="photo_url" class="form-control">
+              <input type="text" id="CRedit-photo" name="photo" class="form-control">
             </div>
 
             <div class="mb-3">

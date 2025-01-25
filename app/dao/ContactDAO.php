@@ -4,6 +4,7 @@ namespace app\dao;
 
 use app\core\Connexion;
 use app\model\Contact;
+use Exception;
 use PDO;
 use PDOException;
 
@@ -11,26 +12,35 @@ class ContactDAO
 {
 
 
-    public function creatContact(Contact $contact): Contact
-    {
+    public function creatContact(Contact $contact): Contact {
         try {
             $query = "INSERT INTO contacts (photo, firstname, lastname, numero, email) 
                       VALUES (:photo, :firstname, :lastname, :numero, :email)";
-
+    
             $stmt = Connexion::getInstance()->getConnexion()->prepare($query);
-            $stmt->bindParam(':photo', $contact->getPhoto());
-            $stmt->bindParam(':firstname', $contact->getFirstname());
-            $stmt->bindParam(':lastname', $contact->getLastname());
-            $stmt->bindParam(':numero', $contact->getNumero());
-            $stmt->bindParam(':email', $contact->getEmail());
+    
+
+            $photo = $contact->getPhoto();
+            $firstname = $contact->getFirstname();
+            $lastname = $contact->getLastname();
+            $numero = $contact->getNumero();
+            $email = $contact->getEmail();
+
+            $stmt->bindParam(':photo', $photo);
+            $stmt->bindParam(':firstname', $firstname);
+            $stmt->bindParam(':lastname', $lastname);
+            $stmt->bindParam(':numero', $numero);
+            $stmt->bindParam(':email', $email);
+    
             $stmt->execute();
-
+    
             $contact->setId(Connexion::getInstance()->getConnexion()->lastInsertId());
-
+    
             return $contact;
         } catch (PDOException $e) {
-            echo "eroro " . $e->getMessage();
-            return null;
+            
+            error_log("Error creating contact: " . $e->getMessage()); 
+            throw new Exception("Failed to create contact: " . $e->getMessage()); 
         }
     }
 
@@ -105,4 +115,6 @@ class ContactDAO
             return 0;
         }
     }
+
+    
 }

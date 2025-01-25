@@ -25,11 +25,12 @@ class ContactController
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
             $nemuro = $_POST['numero'];
+            $photo = $_POST['photo'];
 
-            $photo = $_FILES['photo'];
-            $targetDir = "uploads/";
-            $targetFile = $targetDir . basename($photo["name"]);
-            move_uploaded_file($photo["tmp_name"], $targetFile);
+            // $photo = $_FILES['photo'];
+            // $targetDir = "uploads/";
+            // $targetFile = $targetDir . basename($photo["name"]);
+            // move_uploaded_file($photo["tmp_name"], $targetFile);
 
             $contact = new Contact();
 
@@ -37,7 +38,7 @@ class ContactController
             $contact->setLastname($lastname);
             $contact->setEmail($email);
             $contact->setNumero($nemuro);
-            $contact->setPhoto($targetFile);
+            $contact->setPhoto($photo);
 
             if ($this->contactdao->creatContact($contact)) {
                 header("Location: contactsdashboard.php");
@@ -98,4 +99,6 @@ class ContactController
     public function getContactsCount(): int {
         return $this->contactdao->countContacts();
     }
+
+    
 }
