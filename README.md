@@ -24,9 +24,9 @@ A web application built with **PHP8 (Object-Oriented Programming)** to manage a 
 /Contactify  
 │  
 ├── /app  
-│   ├── /models          # Entity classes  
+│   ├── /model          # Entity classes  
 │   │   └── Contact.php  # Contact entity  
-│   ├── /controllers     # Business logic  
+│   ├── /controller     # Business logic  
 │   │   └── ContactController.php  
 │   ├── /dao             # Database operations (CRUD)  
 │   │   └── ContactDAO.php  
