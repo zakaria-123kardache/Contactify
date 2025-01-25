@@ -4,6 +4,12 @@
 
 ---
 
+
+![Contact Management Screenshot](./Capture%20d'écran%202025-01-25%20231028.png) 
+
+---
+
+
 ## 📋 Project Overview  
 A web application built with **PHP8 (Object-Oriented Programming)** to manage a list of contacts. Each contact has a unique ID, first name, last name, email, and phone number.  
 
@@ -108,6 +114,4 @@ A web application built with **PHP8 (Object-Oriented Programming)** to manage a 
 ## 📜 License  
 MIT License. See [LICENSE](LICENSE) for details.  
 
---- 
 
-Let me know if you need adjustments! 🚀
