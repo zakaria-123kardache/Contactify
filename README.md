@@ -5,7 +5,7 @@
 ---
 
 
-![Contact Management Screenshot](./Capture%20d'écran%202025-01-25%20231028.png) 
+![Contact Management Screenshot](./contact-screenshot.png) 
 
 ---
 
