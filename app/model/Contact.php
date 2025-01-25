@@ -1,5 +1,7 @@
 <?php
 
+namespace app\model;
+
 class Contact {
 
 
@@ -35,7 +37,7 @@ class Contact {
     {
         return $this->photo ; 
     }
-    public function getNemuro()
+    public function getNumero()
     {
         return $this->numero ; 
     }

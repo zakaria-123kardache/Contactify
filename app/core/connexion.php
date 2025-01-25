@@ -1,6 +1,7 @@
 <?php
 
-namespace app;
+// namespace app;
+namespace app\core;
 
 use PDO;
 use PDOException;
@@ -10,7 +11,7 @@ class Connexion {
     private static $servername = "localhost"; 
     private static $username = "root"; 
     private static $password = ""; 
-    private static $db = "Contactify";
+    private static $db = "contactify";
     private static $connexion ; 
     private static $instance ; 
     public static $counter = 0 ; 

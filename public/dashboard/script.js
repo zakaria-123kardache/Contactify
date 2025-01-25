@@ -1,6 +1,4 @@
-// bytewebster.com
-// bytewebster.com
-// bytewebster.com
+
 function showSweetAlert() {
   Swal.fire({
     title: 'Are you sure?',

@@ -1,33 +1,47 @@
 <?php
 
-use app\Connexion;
+namespace app\dao;
 
-class ContactDAO {
+use app\core\Connexion;
+use app\model\Contact;
+use PDO;
+use PDOException;
+
+class ContactDAO
+{
 
 
-
-    public function creatContact (Contact $contact):Contact
+    public function creatContact(Contact $contact): Contact
     {
-        $query = "INSERT INTO Contactify (photo, firstname, lastname, nemuro , email)
-        VALUES ('".$contact->getPhoto()."','"
-        .$contact->getLastname()."','"
-        .$contact->getNemuro()."','"
-        .$contact->getFirstname()."','"
-        .$contact->getEmail().");";
+        try {
+            $query = "INSERT INTO contacts (photo, firstname, lastname, numero, email) 
+                      VALUES (:photo, :firstname, :lastname, :numero, :email)";
 
-        $stmt =Connexion::getInstance()->getConnexion()->prepare($query);
-        $stmt->execute();
+            $stmt = Connexion::getInstance()->getConnexion()->prepare($query);
+            $stmt->bindParam(':photo', $contact->getPhoto());
+            $stmt->bindParam(':firstname', $contact->getFirstname());
+            $stmt->bindParam(':lastname', $contact->getLastname());
+            $stmt->bindParam(':numero', $contact->getNumero());
+            $stmt->bindParam(':email', $contact->getEmail());
+            $stmt->execute();
 
-        $contact->setId(Connexion::getInstance()->getConnexion()->lastInsertId());
+            $contact->setId(Connexion::getInstance()->getConnexion()->lastInsertId());
 
-        return $contact ; 
+            return $contact;
+        } catch (PDOException $e) {
+            echo "eroro " . $e->getMessage();
+            return null;
+        }
     }
 
-    public function deletContact(int $id):int
+
+
+
+    public function deletContact(int $id): int
     {
-        $query = "DELETE FROM Contactify WHERE id = :id"; 
+        $query = "DELETE FROM contacts WHERE id = :id";
         $stmt = Connexion::getInstance()->getConnexion()->prepare($query);
-        $stmt->bindParam(':id',$id);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
 
         return $stmt->rowCount();
@@ -35,33 +49,46 @@ class ContactDAO {
 
     public function updateContact(Contact $contact)
     {
-        $query = "UPDATE Contactify SET firstname = '"
+        $query = "UPDATE contacts SET firstname = '"
 
-        . $contact->getFirstname() . "', lastname = '"
-        . $contact->getLastname() . "', email = '"
-        . $contact->getEmail() . "', email = '"
-        . $contact->getPhoto() . "', photo = '"
+            . $contact->getFirstname() . "', lastname = '"
+            . $contact->getLastname() . "', email = '"
+            . $contact->getEmail() . "', email = '"
+            . $contact->getPhoto() . "', photo = '"
 
-        . $contact->getNemuro() . ";";
+            . $contact->getNumero() . ";";
 
         $stmt = Connexion::getInstance()->getConnexion()->prepare($query);
         $stmt->execute();
 
-        return $contact ; 
-        
-        
+        return $contact;
     }
 
 
     public static function findContactById(int $id): Contact
     {
-       $query = "SELECT * FROM Contactify WHERE id = " . $id;
- 
-       $statement = Connexion::getInstance()->getConnection()->prepare($query);
-       $statement->execute();
- 
-       return $statement->fetchObject(Contact::class);
+        $query = "SELECT * FROM contacts WHERE id = " . $id;
+
+        $statement = Connexion::getInstance()->getConnection()->prepare($query);
+        $statement->execute();
+
+        return $statement->fetchObject(Contact::class);
     }
 
-   
+    
+    public function getAllContacts(): array
+    {
+        try {
+
+            $query = "SELECT * FROM contacts";
+
+            $stmt = Connexion::getInstance()->getConnexion()->query($query);
+            return $stmt->fetchAll(PDO::FETCH_CLASS, Contact::class);
+
+        } catch (PDOException $e) {
+
+            error_log("Database error: " . $e->getMessage());
+            return [];
+        }
+    }
 }

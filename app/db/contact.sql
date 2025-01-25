@@ -10,7 +10,7 @@ CREATE TABLE Contacts(
     numero  VARCHAR (5O) 
 );
 
-INSERT INTO contacts (photo, nom, prenom, email, numero)
+INSERT INTO contacts (photo, lastname, firstname, email , numero)
 VALUES
 ('https://cdn.sofifa.net/flags/ar.png', 'kardache' ,'zakaria' , 'ardache.@mail.cc','63456756'),
 ('https://cdn.sofifa.net/flags/ar.png', 'kardache' , 'ahmed' , 'dache.@mail.cc','63456756');

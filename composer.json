@@ -2,7 +2,9 @@
     "name": "youcode/contactify",
     "autoload": {
         "psr-4": {
-            "Youcode\\Contactify\\": "app/"
+            "app\\": "app/"
+            
+        
         }
     },
     "authors": [
